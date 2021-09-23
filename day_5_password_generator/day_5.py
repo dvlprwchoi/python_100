@@ -57,3 +57,8 @@ print(f"Here is your password: {join_password}")
 
 # Hard Level - Order of characters randomised:
 # e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+
+random.shuffle(password)
+join_random_ordered_password = "".join(password)
+
+print(f"Here is your password: {join_random_ordered_password}")
