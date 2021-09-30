@@ -8,27 +8,50 @@ shift = int(input("Type the shift number:\n"))
 # TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar().
 
 
-def encrypt(plain_text, shift_amount):
-    cipher_text = ""
-    for letter in plain_text:
+def caesar(text_input, shift_amount, function_type):
+    text_output = ""
+    # #This if statement should not be in the for loop
+    if function_type == "decode":
+        shift_amount *= -1
+    for letter in text_input:
         position = alphabet.index(letter)
         new_position = position + shift_amount
-        cipher_text += alphabet[new_position]
-    print(f"The encoded text is {cipher_text}")
+        text_output += alphabet[new_position]
+    print(f"The {function_type} text is {text_output}")
 
 
-def decrypt(cipher_text, shift_amount):
-    plain_text = ""
-    for letter in cipher_text:
-        position = alphabet.index(letter)
-        new_position = position - shift_amount
-        plain_text += alphabet[new_position]
-    print(f"The decoded text is {plain_text}")
+# def caesar(text_input, shift_amount, function_type):
+#     text_output = ""
+#     for letter in text_input:
+#         position = alphabet.index(letter)
+#         if (function_type == "encode"):
+#             new_position = position + shift_amount
+#         elif (function_type == "decode"):
+#             new_position = position - shift_amount
+#         else:
+#             print("You have to choose between 'encode' and 'decode'.")
+#             return
+#         text_output += alphabet[new_position]
+#     print(f"The {function_type} text is {text_output}")
 
 
-if direction == "encode":
-    encrypt(plain_text=text, shift_amount=shift)
-elif direction == "decode":
-    decrypt(cipher_text=text, shift_amount=shift)
+# def caesar(text_input, shift_amount, function_type):
+#     text_output = ""
+#     if (function_type == "encode"):
+#         for letter in text_input:
+#             position = alphabet.index(letter)
+#             new_position = position + shift_amount
+#             text_output += alphabet[new_position]
+#         print(f"The {function_type} text is {text_output}")
+#     elif (function_type == "decode"):
+#         for letter in text_input:
+#             position = alphabet.index(letter)
+#             new_position = position - shift_amount
+#             text_output += alphabet[new_position]
+#         print(f"The {function_type} text is {text_output}")
+#     else:
+#         print("Try it again!")
+
 
 # TODO-2: Call the caesar() function, passing over the 'text', 'shift' and 'direction' values.
+caesar(text_input=text, shift_amount=shift, function_type=direction)
