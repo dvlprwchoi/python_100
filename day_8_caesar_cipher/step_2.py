@@ -16,6 +16,15 @@ def encrypt(plain_text, shift_amount):
 
 # TODO-1: Create a different function called 'decrypt' that takes the 'text' and 'shift' as inputs.
 
+
+def decrypt(text_d, shift_d):
+    decoded_text = ""
+    for letter in text_d:
+        position = alphabet.index(letter)
+        new_position = position - shift_d
+        decoded_text += alphabet[new_position]
+    print(f"The decoded text is {decoded_text}")
+
     # TODO-2: Inside the 'decrypt' function, shift each letter of the 'text' *backwards* in the alphabet by the shift amount and print the decrypted text.
     # e.g.
     #cipher_text = "mjqqt"
@@ -25,4 +34,10 @@ def encrypt(plain_text, shift_amount):
 
 
 # TODO-3: Check if the user wanted to encrypt or decrypt the message by checking the 'direction' variable. Then call the correct function based on that 'drection' variable. You should be able to test the code to encrypt *AND* decrypt a message.
-encrypt(plain_text=text, shift_amount=shift)
+user_direction = direction.lower()
+if (user_direction == "encode"):
+    encrypt(plain_text=text, shift_amount=shift)
+elif (user_direction == "decode"):
+    decrypt(text_d=text, shift_d=shift)
+else:
+    print("You have to choose between 'encode' and 'decode'.")
