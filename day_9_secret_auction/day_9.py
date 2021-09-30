@@ -23,7 +23,7 @@ while again:
     user_bid = input("What is your bid?: \n")
 
     all_name_bid[user_name] = user_bid
-    print(all_name_bid)
+    # print(all_name_bid)
 
     ask_again = input("Is there any other person? 'Yes' or 'No': \n").lower()
     if ask_again == "yes":
